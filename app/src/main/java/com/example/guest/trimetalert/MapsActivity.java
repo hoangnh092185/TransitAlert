@@ -11,7 +11,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
-
+    private static final String TAG = MapsActivity.class.getSimpleName();
     private GoogleMap mMap;
 
     @Override
@@ -39,8 +39,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap = googleMap;
 
         // Add a marker in Sydney and move the camera
-        LatLng locationLtLg = new LatLng(45.5207161, -122.6778814);
-        mMap.addMarker(new MarkerOptions().position(locationLtLg).title("Marker at Epicodus"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(locationLtLg));
+        LatLng latLng = new LatLng(45.5207161, -122.6778814);
+        mMap.addMarker(new MarkerOptions().position(latLng).title("Marker at Epicodus"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
     }
 }
