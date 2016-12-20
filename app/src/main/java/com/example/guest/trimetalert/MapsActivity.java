@@ -1,8 +1,9 @@
 package com.example.guest.trimetalert;
 
-import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 
+import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -42,5 +43,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         LatLng latLng = new LatLng(45.5207161, -122.6778814);
         mMap.addMarker(new MarkerOptions().position(latLng).title("Marker at Epicodus"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
+
+        CameraUpdate zoom=CameraUpdateFactory.zoomTo(15);
+        mMap.animateCamera(zoom);
     }
 }
