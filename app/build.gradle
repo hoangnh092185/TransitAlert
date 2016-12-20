@@ -17,6 +17,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    buildTypes.each {
+        it.buildConfigField 'String', 'GOOGLE_MAPS_API_KEY', GOOGLE_MAPS_API_KEY
+        it.buildConfigField 'String', 'TRIMET_APPID_KEY', TRIMET_APPID_KEY
+    }
 }
 
 dependencies {
@@ -26,4 +30,7 @@ dependencies {
     compile 'com.google.android.gms:play-services:10.0.1'
     compile 'com.google.android.gms:play-services-location:10.0.1'
     compile 'com.google.android.gms:play-services-maps:10.0.1'
+
+    compile 'com.squareup.okhttp3:okhttp:3.2.0'
+    compile 'se.akerfeldt:okhttp-signpost:1.1.0'
 }

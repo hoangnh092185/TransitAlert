@@ -1,5 +1,6 @@
 package com.example.guest.trimetalert;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 
@@ -8,12 +9,16 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.Circle;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.Polyline;
+import com.google.android.gms.maps.model.PolylineOptions;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
     private static final String TAG = MapsActivity.class.getSimpleName();
     private GoogleMap mMap;
+    private Circle mCircle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,9 +45,36 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap = googleMap;
 
         // Add a marker in Sydney and move the camera
-        LatLng latLng = new LatLng(45.5207161, -122.6778814);
-        mMap.addMarker(new MarkerOptions().position(latLng).title("Marker at Epicodus"));
+        LatLng latLng = new LatLng(45.5206011, -122.677683621);
+        mMap.addMarker(new MarkerOptions().position(latLng).title("Epicodus"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
+
+
+        // ... get a map.
+        // Add a thin red line from London to New York.
+        Polyline northBoundLine = mMap.addPolyline(new PolylineOptions()
+                .add(new LatLng( 45.5096158600378, -122.683593047781)
+                        ,new LatLng(45.5115968952508, -122.682550493399)
+                        ,new LatLng(45.5156328809934,  -122.680380635272)
+                        ,new LatLng(45.5189638279112,  -122.67855822485)
+                        ,new LatLng(45.5223232870211,  -122.676755576899)
+                        ,new LatLng(45.5244053705922, -122.676429156497)
+                        ,new LatLng(45.527221999998,  -122.67651699998)
+                        ,new LatLng(45.5302795802814,  -122.667879156583)
+                        ,new LatLng(45.5396263320439,  -122.675617462578)
+                        ,new LatLng(45.5483082816098,  -122.68092454074)
+                        ,new LatLng(45.5552784153517,  -122.682282063481)
+                        ,new LatLng(45.563117436338,  -122.682149563751)
+                        ,new LatLng(45.5704161547004,  -122.682061649868)
+                        ,new LatLng(45.5776419218896,  -122.682004116327)
+                        ,new LatLng(45.5839271310172,  -122.685943926137)
+                        ,new LatLng(45.5961469262441,  -122.685562346844)
+                        ,new LatLng(45.6053543094761,  -122.685706075831)
+
+                )
+                .width(10)
+                .color(Color.YELLOW)
+                .geodesic(true));
 
         CameraUpdate zoom=CameraUpdateFactory.zoomTo(15);
         mMap.animateCamera(zoom);
