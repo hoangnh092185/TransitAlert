@@ -10,6 +10,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.Circle;
 import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
@@ -45,6 +46,11 @@ public class MapsActivity extends FragmentActivity implements
     private Circle mCircle;
 
 
+
+    private Marker mPerth;
+    private Marker mSydney;
+    private Marker mBrisbane;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,6 +82,24 @@ public class MapsActivity extends FragmentActivity implements
         LatLng latLng = new LatLng(45.5206011, -122.677683621);
         mMap.addMarker(new MarkerOptions().position(latLng).title("Epicodus"));
 
+        mPerth = mMap.addMarker(new MarkerOptions()
+                .position(pSU02)
+                .title("Stop1")
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.train)));
+        mPerth.setTag(0);
+
+        mSydney = mMap.addMarker(new MarkerOptions()
+                .position(pSU03)
+                .title("Stop2")
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.train)));
+        mSydney.setTag(0);
+
+        mBrisbane = mMap.addMarker(new MarkerOptions()
+                .position(pSU04)
+                .title("Stop3")
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.train)));
+        mBrisbane.setTag(0);
+
 
         mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
         CameraUpdate zoom=CameraUpdateFactory.zoomTo(15);
@@ -100,7 +124,6 @@ public class MapsActivity extends FragmentActivity implements
                         ,new LatLng(45.5839271310172,  -122.685943926137)
                         ,new LatLng(45.5961469262441,  -122.685562346844)
                         ,new LatLng(45.6053543094761,  -122.685706075831)
-
                 )
                 .width(10)
                 .color(Color.YELLOW)
