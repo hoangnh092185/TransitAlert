@@ -142,7 +142,7 @@ public class MapsActivity extends AppCompatActivity implements
             mMap.addMarker(new MarkerOptions()
                     .position(location)
                     .title("stop")
-                    .icon(BitmapDescriptorFactory.fromResource(R.drawable.train)));
+                    .icon(BitmapDescriptorFactory.fromResource(R.drawable.bus)));
         }
 
         PolylineOptions polylineOptions = new PolylineOptions();
