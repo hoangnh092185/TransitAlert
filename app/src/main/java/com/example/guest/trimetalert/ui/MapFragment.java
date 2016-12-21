@@ -1,4 +1,4 @@
-package com.example.guest.trimetalert;
+package com.example.guest.trimetalert.ui;
 
 import com.google.android.gms.maps.SupportMapFragment;
 
