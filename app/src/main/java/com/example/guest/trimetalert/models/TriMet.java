@@ -7,16 +7,22 @@ import org.parceler.Parcel;
  */
 @Parcel
 public class TriMet {
-     String mDescription;
-     double mLongitude;
-     double mLatitude;
+    String mDirection;
+    String mDescription;
+    double mLongitude;
+    double mLatitude;
 
     public TriMet(){}
 
-    public TriMet(String mDescription, double mLongitude, double mLatitude) {
+    public TriMet(String mDirection, String mDescription, double mLongitude, double mLatitude) {
+        this.mDirection = mDirection;
         this.mDescription = mDescription;
         this.mLongitude = mLongitude;
         this.mLatitude = mLatitude;
+    }
+
+    public String getmDirection() {
+        return mDirection;
     }
 
     public String getmDescription() {

@@ -17,6 +17,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
     buildTypes.each {
         it.buildConfigField 'String', 'GOOGLE_MAPS_API_KEY', GOOGLE_MAPS_API_KEY
         it.buildConfigField 'String', 'TRIMET_APPID_KEY', TRIMET_APPID_KEY
