@@ -106,46 +106,12 @@ public class MapsActivity extends AppCompatActivity implements GoogleMap.OnMarke
         for(TriMet trimet : mTriMets){
             LatLng place = new LatLng(trimet.getmLatitude(), trimet.getmLongitude());
             String description = new String(trimet.getmDescription());
-//            mlocations.add(new LatLng(trimet.getmLatitude(), trimet.getmLongitude()));
+            mlocations.add(new LatLng(trimet.getmLatitude(), trimet.getmLongitude()));
             mMap.addMarker(new MarkerOptions()
                     .position(place)
                     .title(description)
                     .icon(BitmapDescriptorFactory.fromResource(R.drawable.bus)));
         }
-
-        for(TriMetLocation trimetLocation : mTriMetLocations){
-            LatLng place = new LatLng(trimetLocation.getmLatitude(), trimetLocation.getmLongitude());
-            mMap.addMarker(new MarkerOptions()
-                    .position(place)
-                    .icon(BitmapDescriptorFactory.fromResource(R.drawable.train)));
-        }
-
-
-        //            PolylineOptions polylineOptions = new PolylineOptions();
-//            polylineOptions.addAll(locations);
-//            polylineOptions
-//                    .width(15)
-//                    .color(Color.YELLOW)
-//                    .geodesic(true);
-
-
-//        PolylineOptions polylineOptions = new PolylineOptions();
-//        for(TriMet trimet : mTriMets){
-//            LatLng place = new LatLng(trimet.getmLatitude(), trimet.getmLongitude());
-//            polylineOptions.add(place);
-//        }
-//        polylineOptions
-//                .width(15)
-//                .color(Color.YELLOW)
-//                .geodesic(true);
-
-
-//        PolylineOptions polylineOptions = new PolylineOptions();
-//        polylineOptions.addAll(mlocations);
-//        polylineOptions
-//                .width(15)
-//                .color(Color.YELLOW)
-//                .geodesic(true);
 
         Polyline northBoundLine = mMap.addPolyline(new PolylineOptions()
                 .add(new LatLng( 45.5096158600378, -122.683593047781)
@@ -204,5 +170,39 @@ public class MapsActivity extends AppCompatActivity implements GoogleMap.OnMarke
     }
 
 }
+
+//      for(TriMetLocation trimetLocation : mTriMetLocations){
+//            LatLng place = new LatLng(trimetLocation.getmLatitude(), trimetLocation.getmLongitude());
+//            mMap.addMarker(new MarkerOptions()
+//                    .position(place)
+//                    .icon(BitmapDescriptorFactory.fromResource(R.drawable.train)));
+//        }
+
+
+//            PolylineOptions polylineOptions = new PolylineOptions();
+//            polylineOptions.addAll(locations);
+//            polylineOptions
+//                    .width(15)
+//                    .color(Color.YELLOW)
+//                    .geodesic(true);
+
+
+//        PolylineOptions polylineOptions = new PolylineOptions();
+//        for(TriMet trimet : mTriMets){
+//            LatLng place = new LatLng(trimet.getmLatitude(), trimet.getmLongitude());
+//            polylineOptions.add(place);
+//        }
+//        polylineOptions
+//                .width(15)
+//                .color(Color.YELLOW)
+//                .geodesic(true);
+
+
+//        PolylineOptions polylineOptions = new PolylineOptions();
+//        polylineOptions.addAll(mlocations);
+//        polylineOptions
+//                .width(15)
+//                .color(Color.YELLOW)
+//                .geodesic(true);
 
 
