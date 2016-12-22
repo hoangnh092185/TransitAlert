@@ -60,7 +60,7 @@ public class TriMetService {
                     String description = stopJSON.getString("desc");
                     double longitude = stopJSON.getDouble("lng");
                     double latitude = stopJSON.getDouble("lat");
-                    TriMet trimet = new TriMet(direction, description, longitude, latitude);
+                    TriMet trimet = new TriMet(direction, description,latitude, longitude);
                     trimets.add(trimet);
                 }
             }
@@ -82,7 +82,7 @@ public class TriMetService {
                 JSONObject vehicleJSON = vehicleArray.getJSONObject(i);
                 double latitude = vehicleJSON.getDouble("latitude");
                 double longitude = vehicleJSON.getDouble("longitude");
-                TriMetLocation trimetLocation = new TriMetLocation(longitude, latitude);
+                TriMetLocation trimetLocation = new TriMetLocation(latitude, longitude);
                 trimetLocations.add(trimetLocation);
             }
         } catch (JSONException e){

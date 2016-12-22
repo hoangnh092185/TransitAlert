@@ -14,7 +14,7 @@ public class TriMet {
 
     public TriMet(){}
 
-    public TriMet(String mDirection, String mDescription, double mLongitude, double mLatitude) {
+    public TriMet(String mDirection, String mDescription, double mLatitude, double mLongitude) {
         this.mDirection = mDirection;
         this.mDescription = mDescription;
         this.mLongitude = mLongitude;
