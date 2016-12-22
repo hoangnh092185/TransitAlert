@@ -109,40 +109,6 @@ public class MapsActivity extends AppCompatActivity implements GoogleMap.OnMarke
         LatLng latLng = new LatLng(45.5206011, -122.677683621);
         mMap.addMarker(new MarkerOptions().position(latLng).title("Epicodus"));
 
-//        for(TriMet trimet : mTriMets){
-//            LatLng stoplocations = new LatLng(trimet.getmLatitude(), trimet.getmLongitude());
-//            String description = new String(trimet.getmDescription());
-//            mMap.addMarker(new MarkerOptions()
-//                    .position(stoplocations)
-//                    .title(description)
-//                    .icon(BitmapDescriptorFactory.fromResource(R.drawable.bus)));
-//        }
-//
-//        PolylineOptions rectOptions = new PolylineOptions().width(15).color(Color.YELLOW).geodesic(true);
-//        for (int i = 0; i < mTriMets.size() -1; i++){
-//            rectOptions.add(new LatLng(mTriMets.get(i).getmLatitude(), mTriMets.get(i).getmLongitude()));
-//            Log.d("hehhehe", rectOptions.toString());
-//        }
-//        Polyline polyline = mMap.addPolyline(rectOptions);
-//
-//
-//        for(TriMetLocation trimetLocation : mTriMetLocations){
-//            LatLng trimetcurrentlocation = new LatLng(trimetLocation.getmLatitude(), trimetLocation.getmLongitude());
-//            mMap.addMarker(new MarkerOptions()
-//                    .position(trimetcurrentlocation)
-//                    .title("Yellow Max Line")
-//                    .icon(BitmapDescriptorFactory.fromResource(R.drawable.train)));
-//        }
-
-//        if(mTriMets.size() > 5){
-//            LatLng latLng = new LatLng(45.5206011, -122.677683621);
-//            mMap.addMarker(new MarkerOptions().position(latLng).title("Epicodus"));
-//
-//            mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
-//            CameraUpdate zoom=CameraUpdateFactory.zoomTo(14);
-//            mMap.animateCamera(zoom);
-//        }
-
         mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
         CameraUpdate zoom=CameraUpdateFactory.zoomTo(14);
         mMap.animateCamera(zoom);
@@ -156,19 +122,6 @@ public class MapsActivity extends AppCompatActivity implements GoogleMap.OnMarke
         });
 
     }
-
-    private void doTheAutoRefresh() {
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                findTrimetLocation();
-                doTheAutoRefresh();
-                addMarker();
-                Log.d("kejwklj ", "hehey it has been 10 seconds");
-            }
-        }, 30000);
-    }
-
 
     @Override
     public boolean onMarkerClick(final Marker marker) {
@@ -186,6 +139,18 @@ public class MapsActivity extends AppCompatActivity implements GoogleMap.OnMarke
         return false;
     }
 
+    private void doTheAutoRefresh() {
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                findTrimetLocation();
+                doTheAutoRefresh();
+                addMarker();
+                Log.d("Log timelapse", "hehey it has been 10 seconds");
+            }
+        }, 10000);
+    }
+
     private void addMarker() {
         for(TriMet trimet : mTriMets){
             LatLng stoplocations = new LatLng(trimet.getmLatitude(), trimet.getmLongitude());
@@ -199,16 +164,14 @@ public class MapsActivity extends AppCompatActivity implements GoogleMap.OnMarke
         PolylineOptions rectOptions = new PolylineOptions().width(15).color(Color.YELLOW).geodesic(true);
         for (int i = 0; i < mTriMets.size() -1; i++){
             rectOptions.add(new LatLng(mTriMets.get(i).getmLatitude(), mTriMets.get(i).getmLongitude()));
-            Log.d("hehhehe", rectOptions.toString());
         }
         Polyline polyline = mMap.addPolyline(rectOptions);
-
 
         for(TriMetLocation trimetLocation : mTriMetLocations){
             LatLng trimetcurrentlocation = new LatLng(trimetLocation.getmLatitude(), trimetLocation.getmLongitude());
             mMap.addMarker(new MarkerOptions()
                     .position(trimetcurrentlocation)
-                    .title("Yellow Max Line")
+                    .title(trimetLocation.getmSignMessage())
                     .icon(BitmapDescriptorFactory.fromResource(R.drawable.train)));
         }
 

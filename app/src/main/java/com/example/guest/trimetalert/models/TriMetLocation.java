@@ -9,12 +9,14 @@ import org.parceler.Parcel;
 public class TriMetLocation {
     double mLatitude;
     double mLongitude;
+    String mSignMessage;
 
     public TriMetLocation(){}
 
-    public TriMetLocation(double mLatitude, double mLongitude) {
+    public TriMetLocation(double mLatitude, double mLongitude, String mSignMessage) {
         this.mLatitude = mLatitude;
         this.mLongitude = mLongitude;
+        this.mSignMessage = mSignMessage;
     }
 
     public double getmLatitude() {
@@ -23,5 +25,8 @@ public class TriMetLocation {
 
     public double getmLongitude() {
         return mLongitude;
+    }
+    public String getmSignMessage() {
+        return mSignMessage;
     }
 }

@@ -82,7 +82,8 @@ public class TriMetService {
                 JSONObject vehicleJSON = vehicleArray.getJSONObject(i);
                 double latitude = vehicleJSON.getDouble("latitude");
                 double longitude = vehicleJSON.getDouble("longitude");
-                TriMetLocation trimetLocation = new TriMetLocation(latitude, longitude);
+                String signMessage = vehicleJSON.getString("signMessage");
+                TriMetLocation trimetLocation = new TriMetLocation(latitude, longitude, signMessage);
                 trimetLocations.add(trimetLocation);
             }
         } catch (JSONException e){
