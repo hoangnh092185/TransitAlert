@@ -99,14 +99,14 @@ public class MapsActivity extends AppCompatActivity implements GoogleMap.OnMarke
     public void onMapReady(GoogleMap googleMap) {
 
         mMap = googleMap;
-        // Add a marker in Sydney and move the camera
+
         LatLng latLng = new LatLng(45.5206011, -122.677683621);
         mMap.addMarker(new MarkerOptions().position(latLng).title("Epicodus"));
 
         for(TriMet trimet : mTriMets){
             LatLng place = new LatLng(trimet.getmLatitude(), trimet.getmLongitude());
             String description = new String(trimet.getmDescription());
-            mlocations.add(new LatLng(trimet.getmLatitude(), trimet.getmLongitude()));
+//            mlocations.add(new LatLng(trimet.getmLatitude(), trimet.getmLongitude()));
             mMap.addMarker(new MarkerOptions()
                     .position(place)
                     .title(description)
