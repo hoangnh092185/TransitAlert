@@ -1,6 +1,6 @@
 # TransitAlert
 
- TransitAlert app is created for regular Trimet user. When the app is open, it would display the user regular route and update real-time max or bus location. The app is written in Java and android studio.
+ TransitAlert app is created for regular TriMet user. When the app is open, it would display the user regular route and update real-time max or bus location. The app is written in Java and android studio.
 ## Prerequisites
 
 You will need the following things properly installed on your computer.
